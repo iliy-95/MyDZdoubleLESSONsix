@@ -18,7 +18,21 @@
 
 
     <integer-array name="toDoList">
-<item></item>
+
+        <item>@drawable/june</item>
+        <item>@drawable/july</item>
+        <item>@drawable/august</item>
+        <item>@drawable/september</item>
+        <item>@drawable/october</item>
+        <item>@drawable/november</item>
+        <item>@drawable/december</item>
+        <item>@drawable/january</item>
+        <item>@drawable/february</item>
+        <item>@drawable/march</item>
+        <item>@drawable/april</item>
+        <item>@drawable/may</item>
+
+
 
 
     </integer-array>
