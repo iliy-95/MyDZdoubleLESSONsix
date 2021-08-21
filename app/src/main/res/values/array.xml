@@ -17,7 +17,7 @@
     </string-array>
 
 
-    <integer-array name="toDoList">
+    <integer-array name="flora_a">
 
         <item>@drawable/june</item>
         <item>@drawable/july</item>
