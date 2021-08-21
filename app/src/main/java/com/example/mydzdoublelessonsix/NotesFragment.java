@@ -1,5 +1,6 @@
 package com.example.mydzdoublelessonsix;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -42,7 +43,26 @@ public class NotesFragment extends Fragment {
             tv.setText(note);
             tv.setTextSize(30);
             layoutView.addView(tv);
+            final int fi = i;
+            tv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showPortCoatOfArms(fi);
+                }
+            });
         }
     }
 
+    // Показать герб в портретной ориентации.
+    private void showPortCoatOfArms(int index) {
+        // Откроем вторую activity
+        Intent intent = new Intent();
+        intent.setClass(getActivity(), FragmentFlora.class);
+        // и передадим туда параметры
+        intent.putExtra(FragmentFlora.ARG_INDEX, index);
+        startActivity(intent);
+    }
+
 }
+
+

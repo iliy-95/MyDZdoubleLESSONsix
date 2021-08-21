@@ -1,18 +1,23 @@
 package com.example.mydzdoublelessonsix;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.appcompat.widget.AppCompatImageView;
 
 public class FragmentFlora extends Activity implements FragmentFlora1 {
-    private static final String ARG_INDEX = "index";
+
+    public static final String ARG_INDEX = "index";
     private int index;
     private Bundle arguments;
+    private ViewGroup linearLayout;
+    private Context context;
 
     // Фабричный метод создания фрагмента
     // Фрагменты рекомендуется создавать через фабричные методы.
@@ -46,9 +51,31 @@ public class FragmentFlora extends Activity implements FragmentFlora1 {
         AppCompatImageView imageCoatOfArms = view.findViewById(R.id.florataim);
         // Получить из ресурсов массив указателей на изображения гербов
         TypedArray images = getResources().obtainTypedArray(R.array.flora_a);
+        String[] flora = getResources().getStringArray(R.array.flora_a);
         // Выбрать по индексу подходящий
         imageCoatOfArms.setImageResource(images.getResourceId(index, -1));
         return view;
+        /*for(int i =0;i<flora.length;i++){
+            String name = flora[i];
+            TextView textView = new TextView(getContext());
+            textView.setText(name);
+            textView.setTextSize(30);
+            linearLayout.addView(textView);
+            int finalI = i;
+            textView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showCoatOfArms(finalI);
+                }
+            });
+        }
+
+        return view;*/
+
+    }
+
+    private void showCoatOfArms(int finalI) {
+
     }
 
 
@@ -58,5 +85,13 @@ public class FragmentFlora extends Activity implements FragmentFlora1 {
 
     public Bundle getArguments() {
         return arguments;
+    }
+
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
     }
 }
