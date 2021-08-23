@@ -1,5 +1,6 @@
 package com.example.mydzdoublelessonsix;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -37,11 +38,29 @@ public class MonthsFragment extends Fragment {
             tv.setText(city);
             tv.setTextSize(25);
             layoutView.addView(tv);
+            final int fi = i;
+            tv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showPortFlora(fi);
+                }
+            });
+
+
         }
+
+
 
     }
 
-
+    private void showPortFlora(int index) {
+        // Откроем вторую activity
+        Intent intent = new Intent();
+        intent.setClass(getActivity(), FloraOrientation.class);
+        // и передадим туда параметры
+        intent.putExtra(FloraFragment.KEY_INDEX, index);
+        startActivity(intent);
+    }
 
 
 

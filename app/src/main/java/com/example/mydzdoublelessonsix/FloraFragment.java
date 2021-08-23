@@ -14,7 +14,8 @@ import android.view.ViewGroup;
 
 public class FloraFragment extends Fragment {
 
-    private static final String KEY_INDEX = "index";
+    public static final String KEY_INDEX = "index";
+    //private static final String KEY_INDEX = ;
     private int index;
 
 
