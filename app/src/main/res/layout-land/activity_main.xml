@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false">
+
+    <!-- Фрагмент с выбором городов -->
+    <androidx.fragment.app.FragmentContainerView
+        android:name="com.example.mydzdoublelessonsix.MonthsFragment"
+        android:id="@+id/notes"
+        android:layout_weight="1"
+        android:layout_width="0sp"
+        android:layout_height="match_parent" />
+
+    <!-- Здесь будет герб выбранного города -->
+    <FrameLayout
+        android:id="@+id/imgeNotes"
+        android:layout_width="0sp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="?android:attr/detailsElementBackground"/>
+
+</LinearLayout>
