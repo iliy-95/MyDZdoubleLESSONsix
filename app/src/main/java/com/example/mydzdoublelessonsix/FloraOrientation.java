@@ -21,7 +21,8 @@ public class FloraOrientation extends AppCompatActivity {
         if (savedInstanceState == null) {
             // Если эта activity запускается первый раз (с каждым новым гербом первый раз),
             // то перенаправим параметр фрагменту
-            FloraFragment details = new FloraFragment();
+            FloraFragment details;
+            details = new FloraFragment();
             details.setArguments(getIntent().getExtras());
             // Добавим фрагмент на activity
             getSupportFragmentManager()

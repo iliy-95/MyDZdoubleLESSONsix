@@ -15,10 +15,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
-public class MonthsFragment extends Fragment {
+public class MonthsFragment<isLandscape> extends Fragment {
 
     public static final String CURRENT_MONTHS = "CurrentMonths";
-    private int currentPosition = 0;    // Текущая позиция (выбранный город)
+    //private int currentPosition = 0;    // Текущая позиция (выбранный город)
+    private Months currentMonths;
     private boolean isLandscape;
 
     @Override
@@ -50,19 +51,27 @@ public class MonthsFragment extends Fragment {
             layoutView.addView(tv);
             final int fi = i;
             tv.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //showPortFlora(fi);
-                    currentPosition = fi;
-                    showFlora(currentPosition);
+
+                    @Override
+                    public void onClick(View v) {
+                        //showPortFlora(fi);
+                        //currentPosition = fi;
+                        //showFlora(currentPosition);
+                        currentMonths = new Months(fi,
+                                getResources().getStringArray(R.array.notes)[fi]) {
+                        };
+                        showFlora(currentMonths);
+                    }
+                });
                 }
-            });
+            } {
+
 
 
         }
 
 
-    }
+
     // Сохраним текущую позицию (вызывается перед выходом из фрагмента)
     //@Override
    // public void onSaveInstanceState( Bundle outState) {
@@ -71,7 +80,7 @@ public class MonthsFragment extends Fragment {
     //}
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        outState.putInt(CURRENT_MONTHS,currentPosition);
+        outState.putParcelable(CURRENT_MONTHS,currentMonths);
         super.onSaveInstanceState(outState);
     }
 
@@ -88,34 +97,42 @@ public class MonthsFragment extends Fragment {
         // Если это не первое создание, то восстановим текущую позицию
         if (savedInstanceState != null) {
             // Восстановление текущей позиции.
-            currentPosition = savedInstanceState.getInt(CURRENT_MONTHS, 0);
+            //currentPosition = savedInstanceState.getInt(CURRENT_MONTHS, 0);
+            currentMonths = savedInstanceState.getParcelable(CURRENT_MONTHS);
+        } else {
+            // Если восстановить не удалось, то сделаем объект с первым индексом
+            currentMonths = new Months(0, getResources().getStringArray(R.array.notes)[0]) {
+            };
         }
-
-
-
 // Если можно нарисовать рядом герб, то сделаем это
         if (isLandscape) {
-            showLandFlora(currentPosition);
+            showLandFlora(currentMonths);
         }
-
     }
-        private void showFlora ( int index){
+
+
+
+
+
+
+
+        private void showFlora ( Months currentMonths){
             if (isLandscape) {
-                showLandFlora(index);
+                showLandFlora(currentMonths);
             } else {
-                showPortFlora(index);
+                showPortFlora(currentMonths);
             }
         }
 
         // Показать герб в ландшафтной ориентации
-        private void showLandFlora ( int index){
+        private void showLandFlora (Months currentMonths){
             // Создаём новый фрагмент с текущей позицией для вывода герба
-            FloraFragment detail = FloraFragment.newInstance(index);
+            FloraFragment detail = FloraFragment.newInstance(currentMonths);
 
             // Выполняем транзакцию по замене фрагмента
             FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.imgeNotes, detail);  // замена фрагмента
+            fragmentTransaction.replace(R.id.imge2Notes, detail);  // замена фрагмента
             fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             fragmentTransaction.commit();
         }
@@ -123,12 +140,12 @@ public class MonthsFragment extends Fragment {
 
 
 
-    private void showPortFlora ( int index){
+    private void showPortFlora ( Months currentMonths){
             // Откроем вторую activity
             Intent intent = new Intent();
             intent.setClass(getActivity(), FloraOrientation.class);
             // и передадим туда параметры
-            intent.putExtra(FloraFragment.KEY_INDEX, index);
+            intent.putExtra(FloraFragment.KEY_MONTHS, currentMonths);
             startActivity(intent);
         }
 

@@ -6,8 +6,17 @@
     android:orientation="vertical"
     tools:context=".FloraFragment">
 
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="@string/textview3" />
+
+
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/imgeNotes"
+        android:id="@+id/imageNotes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/june" />
