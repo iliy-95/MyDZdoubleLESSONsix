@@ -60,7 +60,7 @@ public class FloraFragment extends Fragment {
         MonthsNameView.setText(months.getMonthsName());
         return view;
 
-// Установить название города
+
 
 
 

@@ -18,7 +18,7 @@ import android.widget.TextView;
 public class MonthsFragment<isLandscape> extends Fragment {
 
     public static final String CURRENT_MONTHS = "CurrentMonths";
-    //private int currentPosition = 0;    // Текущая позиция (выбранный город)
+
     private Months currentMonths;
     private boolean isLandscape;
 
@@ -38,7 +38,7 @@ public class MonthsFragment<isLandscape> extends Fragment {
 
 
 
-    // создаём список городов на экране из массива в ресурсах
+
     private void initList(View view) {
         LinearLayout layoutView = (LinearLayout) view;
         String[] notes = getResources().getStringArray(R.array.notes);
@@ -85,26 +85,26 @@ public class MonthsFragment<isLandscape> extends Fragment {
     }
 
 
-    //activity создана, можно к ней обращаться. Выполним начальные действия
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        // Определение, можно ли будет расположить рядом герб в другом фрагменте
+
         isLandscape = getResources().getConfiguration().orientation
                 == Configuration.ORIENTATION_LANDSCAPE;
 
-        // Если это не первое создание, то восстановим текущую позицию
+
         if (savedInstanceState != null) {
-            // Восстановление текущей позиции.
+
             //currentPosition = savedInstanceState.getInt(CURRENT_MONTHS, 0);
             currentMonths = savedInstanceState.getParcelable(CURRENT_MONTHS);
         } else {
-            // Если восстановить не удалось, то сделаем объект с первым индексом
+
             currentMonths = new Months(0, getResources().getStringArray(R.array.notes)[0]) {
             };
         }
-// Если можно нарисовать рядом герб, то сделаем это
+
         if (isLandscape) {
             showLandFlora(currentMonths);
         }
@@ -124,9 +124,9 @@ public class MonthsFragment<isLandscape> extends Fragment {
             }
         }
 
-        // Показать герб в ландшафтной ориентации
+        //  ландшафтная ориентации
         private void showLandFlora (Months currentMonths){
-            // Создаём новый фрагмент с текущей позицией для вывода герба
+            // Создаём новый фрагмент с текущей позицией для вывода изоображения.
             FloraFragment detail = FloraFragment.newInstance(currentMonths);
 
             // Выполняем транзакцию по замене фрагмента
