@@ -8,4 +8,9 @@
     <string name="search">Поиск</string>
     <string name="settings">Настройки</string>
     <string name="opr"> О приложении</string>
+    <string name="favorite">Что то интересное </string>
+    <string name="fragment_navigation" />
+    <string name="main" > Тоже что то интересное </string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>
