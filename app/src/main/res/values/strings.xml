@@ -5,4 +5,7 @@
     <string name="Flora">florka</string>
     <string name="textview">Textview</string>
     <string name="textview3">TextView</string>
+    <string name="search">Поиск</string>
+    <string name="settings">Настройки</string>
+    <string name="opr"> О приложении</string>
 </resources>
