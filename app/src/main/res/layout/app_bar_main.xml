@@ -16,7 +16,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@drawable/said_nav_bar"
             app:popupTheme="@style/Theme.AppCompat.DayNight.DarkActionBar">
         </androidx.appcompat.widget.Toolbar>
 

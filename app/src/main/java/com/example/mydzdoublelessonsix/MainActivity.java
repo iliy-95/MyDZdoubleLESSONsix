@@ -8,7 +8,6 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -41,21 +40,72 @@ public class MainActivity extends AppCompatActivity {
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+
+
+
+
+
+
         // Обработка навигационного меню
+
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+
+
             @Override
             public boolean onNavigationItemSelected( MenuItem item) {
-                int id = item.getItemId();
+                /*int id = item.getItemId();
                 if (navigateFragment(id)){
                     drawer.closeDrawer(GravityCompat.START);
                     return true;
-                }
+                }*/
                 return false;
             }
+
+
         });
     }
 
+
+
+
+    /*@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+       if (navigateFragment(id)) {
+            return true;
+
+       }
+
+
+
+
+
+
+        return super.onOptionsItemSelected(item);
+    }*/
+
+
+    /*private boolean navigateFragment(int id) {
+
+
+        switch (id) {
+            case R.id.action_settings2:
+              //MonthsFragment();
+                return true;
+            case R.id.action_main2:
+                //MonthsFragment();
+                return true;
+            case R.id.action_favorite2:
+                //MonthsFragment();
+                return true;
+
+
+        }
+
+            return false;
+    }*/
 
 
 
@@ -65,23 +115,17 @@ public class MainActivity extends AppCompatActivity {
         return toolbar;
     }
 
-    @SuppressLint("NonConstantResourceId")
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (navigateFragment(id)) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
 
 
-    private boolean navigateFragment(int id) {
+
+
+
+
+    /*private boolean navigateFragment(int id) {
         switch (id) {
             case R.id.action_settings:
-                addFragment(new MonthsFragment());
+                showFragment(new MonthsFragment.newInstant());
                 return true;
             case R.id.action_main:
                 addFragment(new FloraFragment());
@@ -90,9 +134,10 @@ public class MainActivity extends AppCompatActivity {
                 addFragment(new FloraOrientation());
                 return true;
 
+
         }
         return false;
-    }
+    }*/
 
 
     @Override
