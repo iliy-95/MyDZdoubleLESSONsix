@@ -9,11 +9,19 @@
     <string name="settings">Настройки</string>
     <string name="opr"> О приложении</string>
     <string name="favorite">Что то интересное </string>
-    <string name="fragment_navigation" />
+    <string name="fragment_navigation" >Заметки</string>
     <string name="main" > Тоже что то интересное </string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_desc" />
     <string name="nav_header_title">Приветствую</string>
     <string name="nav_header_subtitle">Заметки</string>
+    <string name="use_backstack" />
+    <string name="new_fragment" > new_fragment</string>
+    <string name="add" > add </string>
+    <string name="replace" > replace </string>
+    <string name="back_as_remove_fragment" > back_as_remove_fragment </string>
+    <string name="delete_before_add" > delete_before_add</string>
+
+
 </resources>

@@ -34,11 +34,6 @@ public class MonthsFragment<isLandscape> extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         initList(view);
     }
-
-
-
-
-
     private void initList(View view) {
         LinearLayout layoutView = (LinearLayout) view;
         String[] notes = getResources().getStringArray(R.array.notes);
@@ -132,7 +127,7 @@ public class MonthsFragment<isLandscape> extends Fragment {
             // Выполняем транзакцию по замене фрагмента
             FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.imge2Notes, detail);  // замена фрагмента
+            fragmentTransaction.replace(R.id.image2Notes, detail);  // замена фрагмента
             fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             fragmentTransaction.commit();
         }

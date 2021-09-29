@@ -26,10 +26,7 @@ public class FloraFragment extends Fragment {
 
      Months months;
 
-
-
-
-    public static FloraFragment newInstance(Months months){
+     public static FloraFragment newInstance(Months months){
       FloraFragment f = new FloraFragment();
 
       Bundle keys = new Bundle();
